@@ -16,7 +16,6 @@ class SinusoidalPositionEmbeddings(nn.Module):
         embeddings = torch.cat((embeddings.sin(), embeddings.cos()), dim=-1)
         return embeddings
 
-
 # U-Net with timestep conditioning for denoising
 class UNet(nn.Module):
     def __init__(self, in_channels=3, out_channels=3, time_dim=256):

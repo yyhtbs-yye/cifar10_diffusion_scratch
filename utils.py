@@ -7,4 +7,3 @@ def show_images(images):
     grid_img = torchvision.utils.make_grid(images, nrow=8)
     plt.imshow(grid_img.permute(1, 2, 0).cpu())
     plt.show()
-

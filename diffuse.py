@@ -9,7 +9,6 @@ def forward_diffusion(x_0, t, sqrt_alphas_cumprod, sqrt_one_minus_alphas_cumprod
     noisy_image = sqrt_alpha_t * x_0 + sqrt_one_minus_alpha_t * noise
     return noisy_image, noise
 
-
 # Sampling process using reverse diffusion (denoising)
 @torch.no_grad()
 def sample(model, image_size, batch_size, timesteps, betas, sqrt_alphas_cumprod, sqrt_one_minus_alphas_cumprod, device):

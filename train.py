@@ -36,7 +36,6 @@ alphas_cumprod = torch.cumprod(alphas, axis=0)
 sqrt_alphas_cumprod = torch.sqrt(alphas_cumprod)
 sqrt_one_minus_alphas_cumprod = torch.sqrt(1.0 - alphas_cumprod)
 
-
 # Model, optimizer, and training
 model = UNet().to(device)
 optimizer = optim.Adam(model.parameters(), lr=1e-5)

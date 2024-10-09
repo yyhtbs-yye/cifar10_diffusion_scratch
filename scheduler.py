@@ -1,7 +1,12 @@
 import torch
 
 # Beta schedule for the forward process: a linear noise schedule
+
 def linear_beta_schedule(timesteps, beta_start=0.0001, beta_end=0.02):
+    """
+    Linear schedule for betas as proposed in Original DDPM paper.
+    """
+
     betas = torch.linspace(beta_start, beta_end, timesteps)
     # Clamp betas to ensure stability
     betas = torch.clamp(betas, min=1e-5, max=0.999)
