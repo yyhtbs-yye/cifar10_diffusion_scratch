@@ -19,7 +19,6 @@ transform = transforms.Compose([
     transforms.Normalize([0.5], [0.5])
 ])
 
-
 dataset = datasets.CIFAR10(root='cifar_data', train=True, download=True, transform=transform)
 dataloader = DataLoader(dataset, batch_size=64, shuffle=True)
 
