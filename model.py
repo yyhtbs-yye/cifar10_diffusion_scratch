@@ -18,8 +18,11 @@ class SinusoidalPositionEmbeddings(nn.Module):
 
 # U-Net with timestep conditioning for denoising
 class UNet(nn.Module):
-    def __init__(self, in_channels=3, out_channels=3, time_dim=256):
+    def __init__(self, in_channels=3, out_channels=None, time_dim=256):
         super(UNet, self).__init__()
+
+        if out_channels is None: 
+            out_channels = in_channels
         # Positional embedding for the time step
         self.time_embedding = SinusoidalPositionEmbeddings(time_dim)
         

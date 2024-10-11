@@ -11,9 +11,9 @@ def forward_diffusion(x_0, t, sqrt_alphas_cumprod, sqrt_one_minus_alphas_cumprod
 
 # Sampling process using reverse diffusion (denoising)
 @torch.no_grad()
-def sample(model, image_size, batch_size, timesteps, betas, sqrt_alphas_cumprod, sqrt_one_minus_alphas_cumprod, device):
+def sample(model, in_channels, image_size, batch_size, timesteps, betas, sqrt_alphas_cumprod, sqrt_one_minus_alphas_cumprod, device):
     model.eval()
-    img = torch.randn((batch_size, 3, image_size, image_size)).to(device)
+    img = torch.randn((batch_size, in_channels, image_size, image_size)).to(device)
     
     for t in reversed(range(1, timesteps)):
         t_tensor = torch.full((batch_size,), t, device=device, dtype=torch.long)
