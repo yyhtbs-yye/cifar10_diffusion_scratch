@@ -27,7 +27,7 @@ def sample(model, in_channels, image_size, batch_size, timesteps, betas, sqrt_al
         # Subtract the predicted noise component scaled by beta_t and sqrt(1 - alpha_cumprod)
         img = (img - (1 - sqrt_alpha_t) / sqrt_one_minus_alpha_t * predicted_noise) / torch.sqrt(sqrt_alpha_t)
 
-        img = torch.clamp(img, -1.0, 1.0)  # Clipping values to a reasonable range
+        # img = torch.clamp(img, -1.0, 1.0)  # Clipping values to a reasonable range
 
         # Add Gaussian noise at the current step, scaled by the noise factor
         if t > 1:
